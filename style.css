@@ -1,0 +1,106 @@
+*{
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+h1{
+    margin-bottom: 10px;
+}
+
+.container{
+    width: 40%;
+    padding: 30px 50px;
+    box-shadow: 1px 1px 6px 10px #1a1a1a40;
+    display: flex;
+    flex-direction: column;
+    background: #fafafa;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+}
+
+.qr-form{
+    margin: 20px;
+    width: 100%;
+}
+
+.qr-code{
+    display: none;
+
+}
+
+.qr-code button{
+    width: 100%;
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    font-size: 1.5rem;
+    margin-top: 30px;
+}
+
+.qr-code button:hover{
+    transition: linear all 0.3s;
+    transform: rotate(359deg);
+    filter: drop-shadow(3px 3px 20px #1a1a1a80);
+}
+.qr-code.active{
+    display: flex; 
+    padding: 20px;
+    flex-direction: column;
+
+}
+
+input[type="text"]{
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 1px 1px 5px 2px #1a1a1a30;
+}
+
+
+.btnQr{
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    box-shadow:  1px 1px 5px 2px #1a1a1a30;
+
+}
+
+.btnQr.active{
+    background: #32e521;
+}
+
+.btnQr:hover{
+    transition: linear all 0.3s;
+    filter: brightness(0.9);
+}
+.btnQr:disabled{
+    cursor: none;
+}
+
+@media screen and (max-width: 799px) {
+    .container{
+        width: 100%;
+        padding: 30px;
+        text-align: center;
+        box-shadow: none;
+        background: transparent;
+    }
+}
