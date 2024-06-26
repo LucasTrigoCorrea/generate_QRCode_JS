@@ -8,14 +8,14 @@ generateQrCode = () => {
 
     if(!qrCodeInputValue) return;
 
-    qrCodeBtn.innerText = "Gerando Código...";
+    qrCodeBtn.innerText = "Gerando QR Code...";
 
     qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrCodeInputValue}`;
 
     qrCodeImg.addEventListener('load', () => {
         container.classList.add('active');
         qrCodeBtn.classList.add('active');
-        qrCodeBtn.innerText = "Novo Código";
+        qrCodeBtn.innerText = "Novo QR Code";
 
     });
 
@@ -29,7 +29,7 @@ qrCodeBtn.addEventListener('click', () => {
         return;
 
     }
-    if(qrCodeBtn.innerText === 'Novo Código'){
+    if(qrCodeBtn.innerText === 'Novo QR Code'){
         window.location.reload();
         return;
     }
@@ -43,7 +43,7 @@ qrCodeInput.addEventListener('keydown', e => {
             return;
     
         }
-        if(qrCodeBtn.innerText === 'Novo Código'){
+        if(qrCodeBtn.innerText === 'Novo QR Code'){
             window.location.reload();
             return;
         }
