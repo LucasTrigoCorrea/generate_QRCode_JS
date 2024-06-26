@@ -1,6 +1,6 @@
 const container = document.querySelector('.qr-code');
 const qrCodeBtn = document.querySelector('.qr-form button');
-const qrCodeInput = document.querySelector('.qr-form input');
+const qrCodeInput = document.querySelector('.input');
 const qrCodeImg = document.querySelector('.qr-code img');
 
 generateQrCode = () => {
@@ -15,7 +15,7 @@ generateQrCode = () => {
     qrCodeImg.addEventListener('load', () => {
         container.classList.add('active');
         qrCodeBtn.classList.add('active');
-        qrCodeBtn.innerText = "Código Gerado";
+        qrCodeBtn.innerText = "Novo Código";
 
     });
 
@@ -24,20 +24,37 @@ generateQrCode = () => {
 }
 
 qrCodeBtn.addEventListener('click', () => {
-    
+    if(qrCodeBtn.innerText === 'Gerar QR Code'){
         generateQrCode();
+        return;
+
+    }
+    if(qrCodeBtn.innerText === 'Novo Código'){
+        window.location.reload();
+        return;
+    }
 
 });
 
 qrCodeInput.addEventListener('keydown', e => {
-    if(e.code === 'Enter') generateQrCode();
+    if(e.code === 'Enter'){
+        if(qrCodeBtn.innerText === 'Gerar QR Code'){
+            generateQrCode();
+            return;
+    
+        }
+        if(qrCodeBtn.innerText === 'Novo Código'){
+            window.location.reload();
+            return;
+        }
+    }
 })
 
 qrCodeInput.addEventListener('keyup', () => {
     if(!qrCodeInput.value){
         container.classList.remove('active');
         qrCodeBtn.classList.remove('active');
-        qrCodeBtn.innerText = "Gerar código";
+        qrCodeBtn.innerText = "Gerar QR Code";
         qrCodeBtn.setAttribute('disabled', true);
         return;
     } else {
@@ -45,7 +62,3 @@ qrCodeInput.addEventListener('keyup', () => {
         return;
     }
 })
-
-onClear = () => {
-    window.location.reload();
-}
